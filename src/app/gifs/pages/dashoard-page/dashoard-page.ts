@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { SideMenu } from "../../components/side-menu/side-menu";
 
 @Component({
   selector: 'app-dashoard-page',
-  imports: [],
+  imports: [RouterOutlet, SideMenu],
   templateUrl: './dashoard-page.html',
 })
-export class DashoardPage {}
+export default class DashoardPage {}

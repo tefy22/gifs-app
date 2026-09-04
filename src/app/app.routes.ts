@@ -1,11 +1,29 @@
 import { Routes } from '@angular/router';
-import { DashoardPage } from './gifs/pages/dashoard-page/dashoard-page';
 
 export const routes: Routes = [
 
     {
         path: 'dashboard',
-        component: DashoardPage
+        loadComponent: () => import('./gifs/pages/dashoard-page/dashoard-page') ,
+        children: [
+            {
+                path: 'trending',
+                loadComponent: () => import('./gifs/pages/trending-page/trending-page')
+            },
+            {
+                path: 'search',
+                loadComponent: () => import('./gifs/pages/search-page/search-page')
+            },
+            {
+                path:'**',
+                redirectTo: 'trending'
+            }
+        ]
+    },    
+    {
+        path: '**',
+        redirectTo: 'dashboard'
+
     }
 
 
